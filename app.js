@@ -20,7 +20,7 @@ app.use("/wiki", require("./routes/wiki"));
 app.use("/users", require("./routes/users"));
 
 app.get("/", (req, res) => {
-  res.send(layout("hello"));
+  res.redirect('/wiki');
 });
 
 async function syncDb() {

@@ -4,7 +4,7 @@ const validator = require('validator');
 
 const Page = db.define('page', {
   title: {type: Sequelize.STRING, allowNull: false},
-  slug: {type: Sequelize.STRING, allowNull: false, validate: {isUrl: true}},
+  slug: {type: Sequelize.STRING, allowNull: false},
   content: {type: Sequelize.STRING, allowNull: false},
   status: Sequelize.ENUM('open', 'closed')
 });
