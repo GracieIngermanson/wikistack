@@ -21,11 +21,13 @@ const User = db.define("user", {
   },
 });
 
+Page.belongsTo(User, { as: 'author' });
+
 function urlify(string) {
-  string = string.replace(/\s+/g, "_").replace(/\W/g, "");
+  return string.replace(/\s+/g, "_").replace(/\W/g, "");
 }
 
-Page.beforeCreate((pageInstance) => {
+Page.beforeValidate((pageInstance, options) => {
   pageInstance.slug = urlify(pageInstance.title);
 });
 

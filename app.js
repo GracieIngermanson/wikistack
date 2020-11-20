@@ -25,6 +25,9 @@ app.get("/", (req, res) => {
 
 async function syncDb() {
   await db.sync();
+ /*  // Change to
+   await db.sync({force: true})
+  // and run once to add association between tables*/
   app.listen(PORT);
 }
 
